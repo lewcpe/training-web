@@ -1,0 +1,14 @@
+version: '3'
+services:
+  httpbin:
+    image: kennethreitz/httpbin
+    ports:
+      - 9000:80
+  hello:
+    image: hello-world
+  python:
+    image: python:slim
+    command: python -m http.server
+    environment:
+      TEST1: hello
+    env_file: env.sample
